@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Portfolio</title>
+    <base href="/" />
+    <link href="manifest.json" rel="manifest" />
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
+    <link rel="stylesheet" href="theme/assets/css/style.css">
+    <link rel="stylesheet" href="theme/assets/css/fontawesome.css">
+    <link href="css/app.css" rel="stylesheet" />
+    <!--<link href="MyPortfolio.styles.css" rel="stylesheet" />-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <!--<script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">Loading...</div>
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script>navigator.serviceWorker.register('service-worker.js');</script>
+    <!--<script src="theme/assets/vendors/js/glightbox.min.js"></script>-->
+    <script src="theme/assets/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+        let items = document.querySelectorAll('.carousel .carousel-item')
+        items.forEach((el) => {
+            const minPerSlide = 4
+            let next = el.nextElementSibling
+            for (var i = 1; i < minPerSlide; i++) {
+                if (!next) {
+                    // wrap carousel by using first child
+                    next = items[0]
+                }
+                let cloneChild = next.cloneNode(true)
+                el.appendChild(cloneChild.children[0])
+                next = next.nextElementSibling
+            }
+        })
+           // const lightbox = GLightbox({
+           //     'touchNavigation': true,
+           //     'href': 'https://www.youtube.com/watch?v=J9lS14nM1xg',
+           //     'type': 'video',
+           //     'source': 'youtube', //vimeo, youtube or local
+           //     'width': 900,
+           //     'autoPlayVideos': 'true',
+           // });
+    </script>
+</body>
+</html>
